@@ -12,10 +12,11 @@ module.exports = {
     module: {
         loaders: [
             {
-                text: /\.js$/,
+                text: /\.jsx$/,
+                exclude: /node_modules/,
                 loader: 'babel',
                 query: {
-                    presets: ['es2015']
+                    presets: ['es2015', 'react']
                 }
             },
             { test: /\.css$/, loader: 'style!css' },
@@ -28,5 +29,10 @@ module.exports = {
         alias: { // 设置别名
 
         }
+    },
+    externals: {
+        'react': 'React',
+        'react-dom': 'ReactDOM',
+        'jQuery': 'jQuery'
     }
 };
