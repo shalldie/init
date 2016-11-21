@@ -24,9 +24,7 @@ gulp.task('js', () => {
     gulp.src(config.jsFrom)
         .pipe(plumber({ errorHandler: notify.onError('Error:<%= error.message %>') }))
         .pipe(concat('default.js'))
-        .pipe(babel({
-            presets: ['es2015']
-        }))
+        .pipe(babel())
         .pipe(uglify())
         .pipe(gulp.dest(config.jsTo));
 });
