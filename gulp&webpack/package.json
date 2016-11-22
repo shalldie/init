@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server --inline --host localhost --port 8080 --config webpack.config.dev.js;open http://localhost:8080/"
   },
   "author": "",
   "license": "ISC",
@@ -32,6 +32,8 @@
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
     "style-loader": "^0.13.1",
-    "url-loader": "^0.5.7"
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2"
   }
 }
