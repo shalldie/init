@@ -20,5 +20,23 @@
     文件图标
     vscode-icons
 
+    ESLint
+    ESLint
+
+    使用express来打开html
+    Express
+
+    格式化竖着的线
+    Guides
+
+    nunjucks 着色，用Jinja来代替
+    Jinja
+
+    打开当前html
+    View in browser
+
+    icons
+    vscode-icons
+
 ## 更多
 [segmentfault](https://segmentfault.com/a/1190000006697219)
