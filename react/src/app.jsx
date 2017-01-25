@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import HelloWorld from './helloworld/HelloWorld';
 
 let args = {
-    name: 'tom'
+    name: 'lucy'
 };
 
 ReactDOM.render(

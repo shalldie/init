@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "85751bf36ce1f698d906"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "82f935305195d4ab2c3e"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -8496,7 +8496,11 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	_reactDom2.default.render(_react2.default.createElement(_HelloWorld2.default, null), document.getElementById('root'));
+	var args = {
+	    name: 'tom'
+	};
+
+	_reactDom2.default.render(_react2.default.createElement(_HelloWorld2.default, args), document.getElementById('root'));
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(266); if (makeExportsHot(module, __webpack_require__(174))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "app.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
@@ -30215,20 +30219,21 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            var displayVal = display ? "block" : "none";
+	            var displayVal = this.state.visible ? "block" : "none";
 	            return _react2.default.createElement(
 	                'div',
 	                null,
 	                _react2.default.createElement(
-	                    'h1',
-	                    { style: { display: displayVal } },
-	                    'Hello world! ',
-	                    this.state.name
-	                ),
-	                _react2.default.createElement(
 	                    'button',
 	                    { onClick: this.handleOnToggle.bind(this), type: 'button' },
 	                    'toggle'
+	                ),
+	                _react2.default.createElement(
+	                    'h1',
+	                    { style: { display: displayVal } },
+	                    this.props.message,
+	                    ' ',
+	                    this.state.name
 	                )
 	            );
 	        }
