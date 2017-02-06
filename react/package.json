@@ -4,9 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --inline --host localhost --port 8080 --config webpack.config.dev.js --hot --progress --colors",
-    "open": "explorer http://localhost:8080/",
-    "hmr": "node server.js",
+    "dev": "node server.js",
     "build": "webpack --progress --colors"
   },
   "author": "",

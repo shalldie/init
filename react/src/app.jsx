@@ -3,11 +3,13 @@ import ReactDOM from 'react-dom';
 
 import HelloWorld from './helloworld/HelloWorld';
 
+import Reverse from './reverse/Reverse';
+
 let args = {
     name: 'lucy'
 };
 
 ReactDOM.render(
-    <HelloWorld {...args} />,
+    <Reverse {...args} />,
     document.getElementById('root')
 );
