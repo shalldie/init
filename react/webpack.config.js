@@ -33,7 +33,14 @@ module.exports = {
         // commonsPlugin,
         // uglifyPlugin,
         hmr,
-        noErrorsPlugin
+        noErrorsPlugin,
+        new webpack.DefinePlugin({ // <-- 减少 React 大小的关键
+            'process.env': {
+                'NODE_ENV': JSON.stringify('production')
+            }
+        }),
+        new webpack.optimize.DedupePlugin(), //删除类似的重复代码
+        new webpack.optimize.AggressiveMergingPlugin()//合并块
     ],
     module: {
         //加载器配置
