@@ -8,7 +8,8 @@ const uglifyPlugin = new webpack.optimize.UglifyJsPlugin({
     sourceMap: false
 });
 //编译不报错
-const noErrorsPlugin = new webpack.NoErrorsPlugin();
+// const noErrorsPlugin = new webpack.NoErrorsPlugin();
+const noEmitOnErrorsPlugin = new webpack.NoEmitOnErrorsPlugin();
 //HMR
 const hmr = new webpack.HotModuleReplacementPlugin();
 
@@ -33,36 +34,37 @@ module.exports = {
         // commonsPlugin,
         // uglifyPlugin,
         hmr,
-        noErrorsPlugin,
+        // noErrorsPlugin,
+        noEmitOnErrorsPlugin,
         new webpack.DefinePlugin({ // <-- 减少 React 大小的关键
             'process.env': {
                 'NODE_ENV': JSON.stringify('production')
             }
         }),
-        new webpack.optimize.DedupePlugin(), //删除类似的重复代码
+        // new webpack.optimize.DedupePlugin(), //删除类似的重复代码
         new webpack.optimize.AggressiveMergingPlugin()//合并块
     ],
     module: {
         //加载器配置
-        loaders: [{
+        rules: [{
             test: /\.css$/,
-            loader: 'style-loader!css-loader'
+            use: ['style-loader', 'css-loader']
         }, {
             test: /\.jsx?$/,
             exclude: /node_modules/,
-            loaders: ['react-hot', 'babel']
+            use: ['babel-loader']
         }, {
             test: /\.less$/,
-            loader: 'style!css!less'
+            use: ['style-loader', 'css-loader', 'less-loader']
         }, {
             test: /\.(png|jpg)$/,
-            loader: 'url-loader?limit=8192'
+            use: ['url-loader']
         }]
     },
     //其它解决方案配置
     resolve: {
-        root: path.join(__dirname, 'src'),
-        extensions: ['', '.js', '.jsx', '.json', '.less'],
+        // root: path.join(__dirname, 'src'),
+        extensions: ['.js', '.jsx', '.json', '.less'],
         alias: { // 设置别名
 
         }
