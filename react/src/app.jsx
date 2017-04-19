@@ -1,15 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import HelloWorld from './helloworld/HelloWorld';
+// import { Router, Route, hashHistory } from 'react-router';
 
-import Reverse from './reverse/Reverse';
+import Todos from './components/Todos';
 
-let args = {
-    name: 'lucy'
-};
+
 
 ReactDOM.render(
-    <Reverse {...args} />,
+    <Todos />,
     document.getElementById('root')
 );
+
+if (module.hot) {
+    module.hot.accept()
+}

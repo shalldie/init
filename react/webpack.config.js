@@ -1,6 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
 
+const serverConfig = require('./server.config');
+
 //公共部分js
 const commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
 //压缩
@@ -14,11 +16,12 @@ const noEmitOnErrorsPlugin = new webpack.NoEmitOnErrorsPlugin();
 const hmr = new webpack.HotModuleReplacementPlugin();
 
 module.exports = {
+    devtool: false,
     //页面入口文件配置
     entry: {
         // '': 'webpack/hot/only-dev-server',
         app: [
-            'webpack-dev-server/client?http://localhost:3000',
+            `webpack-dev-server/client?http://${serverConfig.domain}:${serverConfig.port}`,
             'webpack/hot/only-dev-server',
             './src/app'
         ]
@@ -35,7 +38,7 @@ module.exports = {
         // uglifyPlugin,
         hmr,
         // noErrorsPlugin,
-        noEmitOnErrorsPlugin,
+        // noEmitOnErrorsPlugin,
         new webpack.DefinePlugin({ // <-- 减少 React 大小的关键
             'process.env': {
                 'NODE_ENV': JSON.stringify('production')
