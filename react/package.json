@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "node server.js",
-    "build": "webpack --progress --colors"
+    "build": "webpack -p --progress --colors"
   },
   "author": "",
   "license": "ISC",

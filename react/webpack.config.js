@@ -24,17 +24,24 @@ module.exports = {
     //插件项
     plugins: [
         // new webpack.optimize.CommonsChunkPlugin('common.js'),
-        // new webpack.optimize.UglifyJsPlugin({
-        //     sourceMap: false
-        // }),
+        new webpack.optimize.UglifyJsPlugin({
+            sourceMap: false,
+            output: {
+                comments: false
+            },
+            compress: {
+                warnings: false
+            }
+        }),
         new webpack.HotModuleReplacementPlugin(),  // HMR
         // noErrorsPlugin,
         new webpack.NoEmitOnErrorsPlugin(),
-        // new webpack.DefinePlugin({ // <-- 减少 React 大小的关键
-        //     'process.env': {
-        //         'NODE_ENV': JSON.stringify('production')
-        //     }
-        // }),
+        new webpack.DefinePlugin({ // <-- 减少 React 大小的关键
+            'process.env': {
+                'NODE_ENV': JSON.stringify('production')
+            },
+            '__DEV__': false
+        }),
         new webpack.optimize.AggressiveMergingPlugin()//合并块
     ],
     module: {
@@ -65,6 +72,6 @@ module.exports = {
     externals: {
         // 'react': 'React',
         // 'react-dom': 'ReactDOM',
-        'jQuery': 'jQuery'
+        // 'jQuery': 'jQuery'
     }
 };
