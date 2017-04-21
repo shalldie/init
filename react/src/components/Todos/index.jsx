@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import propTypes from 'prop-types';
 import classNames from 'classnames';
 
 import './index.less';
@@ -9,7 +10,7 @@ export default class Todos extends Component {
     }
 
     static propTypes = {
-        list: React.PropTypes.array.isRequired
+        list: propTypes.array.isRequired
     }
 
     state = {
@@ -59,6 +60,7 @@ export default class Todos extends Component {
 
         return (
             <div>
+                <h1>Hello world.</h1>
                 <div>
                     <input ref="tb" type="text" />
                     <button onClick={() => this.handleAdd()} type="button">ADD</button>

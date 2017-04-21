@@ -3,24 +3,13 @@ const webpack = require('webpack');
 
 const serverConfig = require('./server.config');
 
-//公共部分js
-const commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
-//压缩
-const uglifyPlugin = new webpack.optimize.UglifyJsPlugin({
-    sourceMap: false
-});
-//编译不报错
-// const noErrorsPlugin = new webpack.NoErrorsPlugin();
-const noEmitOnErrorsPlugin = new webpack.NoEmitOnErrorsPlugin();
-//HMR
-const hmr = new webpack.HotModuleReplacementPlugin();
-
 module.exports = {
     devtool: false,
     //页面入口文件配置
     entry: {
         // '': 'webpack/hot/only-dev-server',
         app: [
+            'react-hot-loader/patch', // RHL patch
             `webpack-dev-server/client?http://${serverConfig.domain}:${serverConfig.port}`,
             'webpack/hot/only-dev-server',
             './src/app'
@@ -34,17 +23,18 @@ module.exports = {
     },
     //插件项
     plugins: [
-        // commonsPlugin,
-        // uglifyPlugin,
-        hmr,
+        // new webpack.optimize.CommonsChunkPlugin('common.js'),
+        // new webpack.optimize.UglifyJsPlugin({
+        //     sourceMap: false
+        // }),
+        new webpack.HotModuleReplacementPlugin(),  // HMR
         // noErrorsPlugin,
-        // noEmitOnErrorsPlugin,
-        new webpack.DefinePlugin({ // <-- 减少 React 大小的关键
-            'process.env': {
-                'NODE_ENV': JSON.stringify('production')
-            }
-        }),
-        // new webpack.optimize.DedupePlugin(), //删除类似的重复代码
+        new webpack.NoEmitOnErrorsPlugin(),
+        // new webpack.DefinePlugin({ // <-- 减少 React 大小的关键
+        //     'process.env': {
+        //         'NODE_ENV': JSON.stringify('production')
+        //     }
+        // }),
         new webpack.optimize.AggressiveMergingPlugin()//合并块
     ],
     module: {
