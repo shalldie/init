@@ -25,13 +25,19 @@ module.exports = {
     plugins: [
         // new webpack.optimize.CommonsChunkPlugin('common.js'),
         new webpack.optimize.UglifyJsPlugin({
-            sourceMap: false,
+            minimize: true,
+            sourceMap: true,
+            beautify: false,
             output: {
                 comments: false
             },
             compress: {
-                warnings: false
+                warnings: false,
+                screw_ie8: true
             }
+        }),
+        new webpack.ProvidePlugin({
+            React: 'react'
         }),
         new webpack.HotModuleReplacementPlugin(),  // HMR
         // noErrorsPlugin,
