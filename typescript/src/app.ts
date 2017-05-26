@@ -1,7 +1,6 @@
 declare function require(moduleName: string): any;
 
-require('es6-promise').polyfill();
-
+require('babel-polyfill');
 
 function sleep(delay) {
     return new Promise<void>(res => {
@@ -12,7 +11,7 @@ function sleep(delay) {
 }
 
 (async () => {
-    console.log('hello');
+    document.body.innerHTML += new Date().getSeconds() + "<br>";
     await sleep(1000);
-    console.log('world');
+    document.body.innerHTML += new Date().getSeconds() + "<br>";
 })();

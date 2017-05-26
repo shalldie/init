@@ -4,7 +4,7 @@ const path = require('path');
 
 module.exports = {
     entry: {
-        app: ['./src/index.ts']
+        app: ['./src/app.ts']
     },
     output: {
         path: path.resolve('./dist'),
@@ -12,12 +12,17 @@ module.exports = {
         publicPath: '/dist'
     },
     resolve: {
-        extensions: ['js', 'ts']
+        extensions: ['.js', '.ts']
     },
     module: {
         rules: [{
             test: /\.ts$/,
+            exclude: /node_modules/,
             use: ['babel-loader', 'ts-loader']
+        }, {
+            test: /\.js$/,
+            exclude: /node_modules/,
+            use: ['babel-loader']
         }]
     }
 };

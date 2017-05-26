@@ -1,12 +1,14 @@
 {
     "compilerOptions": {
-        "target": "es5",
+        "target": "es2016",
         "module": "commonjs",
-        "lib": [
-            "dom",
-            "es5",
-            "es2015.promise"
-        ]
+        "allowSyntheticDefaultImports": true
+        // "lib": [
+        //     "dom",
+        //     "es5",
+        //     "scripthost",
+        //     "es2015.promise"
+        // ]
     },
     "exclude": [
         "node_modules"
