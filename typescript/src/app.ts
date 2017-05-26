@@ -1,17 +1,16 @@
 declare function require(moduleName: string): any;
 
-require('babel-polyfill');
+// require('babel-polyfill');
+require('es6-promise').polyfill();
 
-function sleep(delay) {
-    return new Promise<void>(res => {
-        setTimeout(function () {
-            res();
-        }, delay);
-    })
-}
+import Tool from './lib/Tool';
+
 
 (async () => {
-    document.body.innerHTML += new Date().getSeconds() + "<br>";
-    await sleep(1000);
-    document.body.innerHTML += new Date().getSeconds() + "<br>";
+    let tool = new Tool();
+    for (let i = 0; i < 10; i++) {
+        document.body.innerHTML += new Date().getSeconds() + "<br>";
+        await tool.sleep(1000);
+    }
 })();
+
