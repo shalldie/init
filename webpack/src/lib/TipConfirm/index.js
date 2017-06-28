@@ -1,1 +1,2 @@
-module.exports = require('./TipConfirm');
+import TipConfirm from './TipConfirm';
+export default TipConfirm;

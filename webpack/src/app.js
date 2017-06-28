@@ -1,3 +1,5 @@
-var confirm = require('./lib/TipConfirm');
+import TipConfirm from './lib/TipConfirm';
 
-confirm('hello');
+let tipConfirm = new TipConfirm();
+
+tipConfirm.showMsg('hello world.');
