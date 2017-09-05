@@ -8,3 +8,5 @@ import Tool from './lib/Tool';
         await tool.sleep(1000);
     }
 })();
+
+const hello = 'world';
