@@ -32,6 +32,6 @@
         "semi": 0,
         "no-eq-null": 0,
         "no-unused-expressions": 0,
-        "no-loop-func": "error"
+        "no-loop-func": 2
     }
 }
