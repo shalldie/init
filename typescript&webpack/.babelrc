@@ -1,19 +1,13 @@
 {
     "presets": [
-        [
-            "es2015",
-            {
-                "modules": false
-            }
-        ],
-        "stage-0"
+        "env"
     ],
     "plugins": [
         [
             "transform-runtime",
             {
                 "helpers": false,
-                "polyfill": false,
+                "polyfill": true,
                 "regenerator": true,
                 "moduleName": "babel-runtime"
             }
