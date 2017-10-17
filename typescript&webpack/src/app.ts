@@ -1,7 +1,6 @@
 declare function require(moduleName: string): any;
 
-// require('babel-polyfill');
-require('es6-promise').polyfill();
+import 'babel-polyfill';
 
 import Tool from './lib/Tool';
 

@@ -1,23 +1,13 @@
 {
     "presets": [
         [
-            "es2015",
+            "env",
             {
-                "modules": false
-            }
-        ],
-        "stage-0"
-    ],
-    "plugins": [
-        // "react-hot-loader/babel",
-        [
-            "transform-runtime",
-            {
-                "helpers": false,
-                "polyfill": false,
-                "regenerator": true,
-                "moduleName": "babel-runtime"
+                "useBuiltIns": true
             }
         ]
+    ],
+    "plugins": [
+        "transform-object-rest-spread"
     ]
 }

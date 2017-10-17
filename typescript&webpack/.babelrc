@@ -1,16 +1,13 @@
 {
     "presets": [
-        "env"
-    ],
-    "plugins": [
         [
-            "transform-runtime",
+            "env",
             {
-                "helpers": false,
-                "polyfill": true,
-                "regenerator": true,
-                "moduleName": "babel-runtime"
+                "useBuiltIns": true
             }
         ]
+    ],
+    "plugins": [
+        "transform-object-rest-spread"
     ]
 }
