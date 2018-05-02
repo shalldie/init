@@ -3,11 +3,18 @@
         [
             "env",
             {
-                "useBuiltIns": true
+                "targets": {
+                    "node": "current"
+                }
             }
         ]
     ],
     "plugins": [
-        "transform-object-rest-spread"
+        [
+            "transform-object-rest-spread",
+            {
+                "useBuiltIns": true
+            }
+        ]
     ]
 }
