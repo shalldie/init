@@ -1,5 +1,5 @@
 {
-  "name": "typescript",
+  "name": "typescript-tpl",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -14,6 +14,6 @@
     "ts-lint": "^4.5.1"
   },
   "dependencies": {
-    "typescript": "^2.5.2"
+    "typescript": "^2.8.3"
   }
 }
