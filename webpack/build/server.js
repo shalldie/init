@@ -16,9 +16,9 @@ const link = `http://${serverConfig.host}:${serverConfig.port}`;
 const options = {
     publicPath: webpackConfig.output.publicPath,
     hot: true,
-    // stats: {
-    //     colors: true
-    // },
+    stats: {
+        colors: true
+    },
     ...serverConfig
 };
 
