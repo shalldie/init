@@ -1,9 +1,7 @@
-process.env.NODE_ENV = 'production';
+const webpackConfig = require('./webpack.config.pro');
+const Webpack = require('webpack');
 
-const webpackConfig = require('./webpack.config');
-const webpack = require('webpack');
-
-webpack(webpackConfig, function (err, stats) {
+Webpack(webpackConfig, function (err, stats) {
     if (err) {
         throw err;
     }
@@ -16,5 +14,5 @@ webpack(webpackConfig, function (err, stats) {
         chunkModules: false
     }) + '\n\n')
 
-    console.log('build complete');
+    console.log('----- build complete >_<#@! -----');
 });

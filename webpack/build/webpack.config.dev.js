@@ -1,5 +1,12 @@
-const webpackConfig = require('./webpack.config.js');
+const webpackConfig = require('./webpack.config.base.js');
 
 module.exports = Object.assign(webpackConfig, {
-    devtool: "cheap-module-eval-source-map"
+    mode: 'development',
+
+    devtool: 'inline-source-map',
+
+    plugins: [
+        new webpack.NamedModulesPlugin(),
+        new webpack.HotModuleReplacementPlugin()
+    ]
 });

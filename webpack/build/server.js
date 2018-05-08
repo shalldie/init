@@ -1,29 +1,37 @@
-const child = require('child_process');
-const os = require('os');
-
-process.env.NODE_ENV = 'dev';
-
+const path = require('path');
+const open = require('open');
 const webpack = require('webpack');
-const WebpackDevServer = require('webpack-dev-server');
-const config = require('./webpack.config.dev');
+const webpackDevServer = require('webpack-dev-server');
+const webpackConfig = require('./webpack.config.dev');
 
-const serverConfig = require('./server.config');
+const serverConfig = {
+    // host: '127.0.0.1',
+    host: 'localhost',
+    port: '3' + (Math.random() + '').slice(-3)
+};
 
+const link = `http://${serverConfig.host}:${serverConfig.port}`;
+// webpackConfig.entry.push(`webpack-dev-server/client?${link}`);
 
-new WebpackDevServer(webpack(config), {
-    publicPath: config.output.publicPath,
-    // hot: true,
-    historyApiFallback: true,
-    stats: {
-        colors: true
-    }
-}).listen(serverConfig.port, serverConfig.domain, function (err, result) {
+const options = {
+    publicPath: webpackConfig.output.publicPath,
+    hot: true,
+    // stats: {
+    //     colors: true
+    // },
+    ...serverConfig
+};
+
+webpackDevServer.addDevServerEntrypoints(webpackConfig, options);
+
+const compiler = webpack(webpackConfig);
+
+const server = new webpackDevServer(compiler, options);
+
+server.listen(serverConfig.port, serverConfig.host, err => {
     if (err) {
         return console.log(err);
     }
-
-    let key = os.platform() == 'darwin' ? 'open' : 'explorer';
-
-    child.exec(`${key} http://${serverConfig.domain}:${serverConfig.port}/`);
-
+    console.log(`Starting server on ${link}`);
+    open(link);
 });
