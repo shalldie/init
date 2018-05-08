@@ -5,8 +5,8 @@ const webpackDevServer = require('webpack-dev-server');
 const webpackConfig = require('./webpack.config.dev');
 
 const serverConfig = {
-    // host: '127.0.0.1',
-    host: 'localhost',
+    host: '127.0.0.1',
+    // host: 'localhost',
     port: '3' + (Math.random() + '').slice(-3)
 };
 
